@@ -1,7 +1,7 @@
-#include<iostream>
-#include<fstream>
-#include<cctype>
-#include<iomanip>
+#include <iostream>
+#include <fstream>
+#include <cctype>
+#include <iomanip>
 
 using namespace std;
 
@@ -29,43 +29,43 @@ public:
 
 void account::createAccount()
 {
-	cout<<"\nPlease enter account number :";
-	cin>>accnr;
-	cout<<"\n\nPlease enter name of account holder : ";
+	cout << "\nPlease enter account number :";
+	cin >> accnr;
+	cout << "\n\nPlease enter name of account holder : ";
 	cin.ignore();
 	cin.getline(name,50);
-	cout<<"\nWould you like a checking or savings account? (C/S) ";
-	cin>>type;
+	cout << "\nWould you like a checking or savings account? (C/S) ";
+	cin >> type;
 	type=toupper(type);
-	cout<<"\nPlease enter amount to deposit : ";
-	cin>>deposit;
-	cout<<"\n\n\nYour account has been created. Thank you for choosing Very Real Bank(tm)";
+	cout << "\nPlease enter amount to deposit : ";
+	cin >> deposit;
+	cout << "\n\n\nYour account has been created. Thank you for choosing Very Real Bank(tm)";
 }
 
 
 
 void account::showAccount() const
 {
-	cout<<"\nAccount number : "<<accnr;
-	cout<<"\nAccount holder name : ";
-	cout<<name;
-	cout<<"\nType of account : "<<type;
-	cout<<"\nBalance : "<<deposit;
+	cout << "\nAccount number : "<<accnr;
+	cout << "\nAccount holder name : ";
+	cout << name;
+	cout << "\nType of account : "<<type;
+	cout << "\nBalance : "<<deposit;
 }
 
 
 
 void account::modify()
 {
-	cout<<"\nAccount number : "<<accnr;
-	cout<<"\nModify account holder name : ";
+	cout << "\nAccount number : "<<accnr;
+	cout << "\nModify account holder name : ";
 	cin.ignore();
 	cin.getline(name,50);
-	cout<<"\nModify type of account : ";
-	cin>>type;
+	cout << "\nModify type of account : ";
+	cin >> type;
 	type=toupper(type);
-	cout<<"\nModify balance : ";
-	cin>>deposit;
+	cout << "\nModify balance : ";
+	cin >> deposit;
 }
 
 
@@ -81,7 +81,7 @@ void account::draw(int x)
 
 void account::report() const
 {
-	cout<<accnr<<setw(10)<<" "<<name<<setw(10)<<" "<<type<<setw(6)<<deposit<<endl;
+	cout << accnr<<setw(10)<<" "<<name<<setw(10)<<" "<<type<<setw(6)<<deposit<<endl;
 }
 
 
@@ -136,18 +136,18 @@ int main()
 	do
 	{
 		system("cls");
-		cout<<"\n\n\n\tMAIN MENU";
-		cout<<"\n\n\t1. NEW ACCOUNT";
-		cout<<"\n\n\t2. DEPOSIT AMOUNT";
-		cout<<"\n\n\t3. WITHDRAW AMOUNT";
-		cout<<"\n\n\t4. BALANCE ENQUIRY";
-		cout<<"\n\n\t5. ACCOUNT HOLDER LIST";
-		cout<<"\n\n\t6. CLOSE AN ACCOUNT";
-		cout<<"\n\n\t7. MODIFY AN ACCOUNT";
-		cout<<"\n\n\t8. EXIT";
-		cout<<"\n\n\t9. BATS";
-		cout<<"\n\n\tPlease select your option (1-9) ";
-		cin>>ch;
+		cout << "\n\n\n\tMAIN MENU";
+		cout << "\n\n\t1. NEW ACCOUNT";
+		cout << "\n\n\t2. DEPOSIT AMOUNT";
+		cout << "\n\n\t3. WITHDRAW AMOUNT";
+		cout << "\n\n\t4. BALANCE ENQUIRY";
+		cout << "\n\n\t5. ACCOUNT HOLDER LIST";
+		cout << "\n\n\t6. CLOSE AN ACCOUNT";
+		cout << "\n\n\t7. MODIFY AN ACCOUNT";
+		cout << "\n\n\t8. EXIT";
+		cout << "\n\n\t9. BATS";
+		cout << "\n\n\tPlease select your option (1-9) ";
+		cin >> ch;
 		system("cls");
 		switch(ch)
 		{
@@ -155,32 +155,32 @@ int main()
 			writeAccount();
 			break;
 		case '2':
-			cout<<"\n\n\tEnter the account number : "; cin>>num;
+			cout << "\n\n\tEnter the account number : "; cin >> num;
 			depositWithdraw(num, 1);
 			break;
 		case '3':
-			cout<<"\n\n\tEnter the account number : "; cin>>num;
+			cout << "\n\n\tEnter the account number : "; cin >> num;
 			depositWithdraw(num, 2);
 			break;
 		case '4':
-			cout<<"\n\n\tEnter the account number : "; cin>>num;
+			cout << "\n\n\tEnter the account number : "; cin >> num;
 			displayBalance(num);
 			break;
 		case '5':
 			displayAll();
 			break;
 		case '6':
-			cout<<"\n\n\tEnter the account number : "; cin>>num;
+			cout << "\n\n\tEnter the account number : "; cin >> num;
 			deleteAccount(num);
 			break;
 		 case '7':
-			cout<<"\n\n\tEnter the account number : "; cin>>num;
+			cout << "\n\n\tEnter the account number : "; cin >> num;
 			modifyAccount(num);
 			break;
 		 case '8':
-			cout<<"\n\n\tThank you for using Very Real Bank(tm)";
+			cout << "\n\n\tThank you for using Very Real Bank(tm)";
 			break;
-		 default :cout<<"\a";
+		 default :cout << "\a";
 		 case '9':
 			bats();
 			break;
@@ -213,10 +213,10 @@ void displayBalance(int n)
 	inFile.open("account.dat",ios::binary);
 	if(!inFile)
 	{
-		cout<<"File could not be opened. Press any key.";
+		cout << "File could not be opened. Press any key.";
 		return;
 	}
-	cout<<"\nBALANCE DETAILS\n";
+	cout << "\nBALANCE DETAILS\n";
 
     	while(inFile.read(reinterpret_cast<char *> (&ac), sizeof(account)))
 	{
@@ -228,7 +228,7 @@ void displayBalance(int n)
 	}
 	inFile.close();
 	if(flag==false)
-		cout<<"\n\nAccount number does not exist.";
+		cout << "\n\nAccount number does not exist.";
 }
 
 
@@ -242,7 +242,7 @@ void modifyAccount(int n)
 	File.open("account.dat",ios::binary|ios::in|ios::out);
 	if(!File)
 	{
-		cout<<"File could not be opened. Press any key.";
+		cout << "File could not be opened. Press any key.";
 		return;
 	}
 	while(!File.eof() && found==false)
@@ -251,18 +251,18 @@ void modifyAccount(int n)
 		if(ac.returnAccnr()==n)
 		{
 			ac.showAccount();
-			cout<<"\n\nPlease enter new account information."<<endl;
+			cout << "\n\nPlease enter new account information." << endl;
 			ac.modify();
 			int pos=(-1)*static_cast<int>(sizeof(account));
 			File.seekp(pos,ios::cur);
 			File.write(reinterpret_cast<char *> (&ac), sizeof(account));
-			cout<<"\n\n\t Record updated.";
+			cout << "\n\n\t Record updated.";
 			found=true;
 		  }
 	}
 	File.close();
 	if(found==false)
-		cout<<"\n\n Record Not Found.";
+		cout << "\n\n Record Not Found.";
 }
 
 
@@ -276,7 +276,7 @@ void deleteAccount(int n)
 	inFile.open("account.dat",ios::binary);
 	if(!inFile)
 	{
-		cout<<"File could not be opened. Press any key.";
+		cout << "File could not be opened. Press any key.";
 		return;
 	}
 	outFile.open("Temp.dat",ios::binary);
@@ -292,7 +292,7 @@ void deleteAccount(int n)
 	outFile.close();
 	remove("account.dat");
 	rename("Temp.dat","account.dat");
-	cout<<"\n\n\tRecord Deleted.";
+	cout << "\n\n\tRecord Deleted.";
 }
 
 
@@ -304,13 +304,13 @@ void displayAll()
 	inFile.open("account.dat",ios::binary);
 	if(!inFile)
 	{
-		cout<<"File could not be opened. Press any key.";
+		cout << "File could not be opened. Press any key.";
 		return;
 	}
-	cout<<"\n\n\t\tACCOUNT HOLDER LIST\n\n";
-	cout<<"====================================================\n";
-	cout<<"Account nr.    Name       Type    Balance\n";
-	cout<<"====================================================\n";
+	cout << "\n\n\t\tACCOUNT HOLDER LIST\n\n";
+	cout << "====================================================\n";
+	cout << "Account nr.    Name       Type    Balance\n";
+	cout << "====================================================\n";
 	while(inFile.read(reinterpret_cast<char *> (&ac), sizeof(account)))
 	{
 		ac.report();
@@ -329,7 +329,7 @@ void depositWithdraw(int n, int option)
 	File.open("account.dat", ios::binary|ios::in|ios::out);
 	if(!File)
 	{
-		cout<<"File could not be opened. Press any key.";
+		cout << "File could not be opened. Press any key.";
 		return;
 	}
 	while(!File.eof() && found==false)
@@ -340,41 +340,41 @@ void depositWithdraw(int n, int option)
 			ac.showAccount();
 			if(option==1)
 			{
-				cout<<"\n\n\tDeposit";
-				cout<<"\n\nPlease enter the amount to be deposited";
-				cin>>amt;
+				cout << "\n\n\tDeposit";
+				cout << "\n\nPlease enter the amount to be deposited";
+				cin >> amt;
 				ac.dep(amt);
 			}
 			if(option==2)
 			{
-				cout<<"\n\n\tWithdraw";
-				cout<<"\n\nPlease enter the amount to be withdrawn";
-				cin>>amt;
+				cout << "\n\n\tWithdraw";
+				cout << "\n\nPlease enter the amount to be withdrawn";
+				cin >> amt;
 				int bal=ac.returnDeposit()-amt;
 				if((bal<500 && ac.returnType()=='S') || (bal<1000 && ac.returnType()=='C'))
-					cout<<"Insufficient funds.";
+					cout << "Insufficient funds.";
 				else
 					ac.draw(amt);
 			}
 			int pos=(-1)*static_cast<int>(sizeof(ac));
 			File.seekp(pos,ios::cur);
 			File.write(reinterpret_cast<char *> (&ac), sizeof(account));
-			cout<<"\n\n\t Record Updated.";
+			cout << "\n\n\t Record Updated.";
 			found=true;
 	       }
          }
 	File.close();
 	if(found==false)
-		cout<<"\n\n Record Not Found.";
+		cout << "\n\n Record Not Found.";
 }
 
 
 
 void intro()
 {
-	cout<<"\n\n\n\t  VERY";
-	cout<<"\n\n\t  REAL";
-	cout<<"\n\n\t  BANK(tm)";
-	cout<<"\n\n\n\nPlease press enter.";
+	cout << "\n\n\n\t  VERY";
+	cout << "\n\n\t  REAL";
+	cout << "\n\n\t  BANK(tm)";
+	cout << "\n\n\n\nPlease press enter.";
 	cin.get();
 }
